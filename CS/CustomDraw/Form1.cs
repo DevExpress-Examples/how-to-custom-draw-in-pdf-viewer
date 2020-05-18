@@ -46,9 +46,12 @@ namespace CustomDraw {
                 PointF startPoint = pdfViewer1.GetClientPoint(startPosition);
                 PointF endPoint = pdfViewer1.GetClientPoint(endPosition);
 
-                g.FillRectangle(new SolidBrush(Color.FromArgb(128, Color.Aqua)),
+                using (SolidBrush blueBrush = new SolidBrush(Color.FromArgb(128, Color.Aqua)))
+                {
+                    g.FillRectangle(blueBrush,
                     RectangleF.FromLTRB(Math.Min(startPoint.X, endPoint.X), Math.Min(startPoint.Y, endPoint.Y),
                     Math.Max(startPoint.X, endPoint.X), Math.Max(startPoint.Y, endPoint.Y)));
+                }
             }
         }
     }
