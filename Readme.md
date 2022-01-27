@@ -11,7 +11,7 @@
 # How to custom draw in  PDF Viewer
 
 
-The PDF Viewer can draw graphics in the PDF document in the <strong>Control.Paint</strong> event handler. <br><br>In this example, the filled rectangle is drawn at any document space when you hold down the left mouse button and move it. 
+The [PDF Viewer control](https://www.devexpress.com/products/net/controls/winforms/pdf-viewer/) can draw graphics in the PDF document in the <strong>Control.Paint</strong> event handler. <br><br>In this example, the filled rectangle is drawn at any document space when you hold down the left mouse button and move it. 
 
 
 <h3>Description</h3>
