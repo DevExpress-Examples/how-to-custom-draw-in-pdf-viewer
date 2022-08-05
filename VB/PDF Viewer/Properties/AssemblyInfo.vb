@@ -4,12 +4,12 @@ Imports System.Runtime.InteropServices
 ' General Information about an assembly is controlled through the following 
 ' set of attributes. Change these attribute values to modify the information
 ' associated with an assembly.
-<Assembly:AssemblyTitle("WindowsFormsApplication3")>
+<Assembly:AssemblyTitle("PDF Viewer")>
 <Assembly:AssemblyDescription("")>
 <Assembly:AssemblyConfiguration("")>
 <Assembly:AssemblyCompany("")>
-<Assembly:AssemblyProduct("WindowsFormsApplication3")>
-<Assembly:AssemblyCopyright("Copyright ©  2015")>
+<Assembly:AssemblyProduct("PDF Viewer")>
+<Assembly:AssemblyCopyright("Copyright ©  2022")>
 <Assembly:AssemblyTrademark("")>
 <Assembly:AssemblyCulture("")>
 ' Setting ComVisible to false makes the types in this assembly not visible 
@@ -17,7 +17,7 @@ Imports System.Runtime.InteropServices
 ' COM, set the ComVisible attribute to true on that type.
 <Assembly:ComVisible(False)>
 ' The following GUID is for the ID of the typelib if this project is exposed to COM
-<Assembly:Guid("845919e9-75a7-401b-a2af-35c210f15aa8")>
+<Assembly:Guid("51b0d106-531c-491e-97f1-3f8faea8d364")>
 ' Version information for an assembly consists of the following four values:
 '
 '      Major Version
@@ -25,8 +25,5 @@ Imports System.Runtime.InteropServices
 '      Build Number
 '      Revision
 '
-' You can specify all the values or you can default the Build and Revision Numbers 
-' by using the '*' as shown below:
-' [assembly: AssemblyVersion("1.0.*")]
 <Assembly:AssemblyVersion("1.0.0.0")>
 <Assembly:AssemblyFileVersion("1.0.0.0")>

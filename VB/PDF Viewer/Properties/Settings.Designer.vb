@@ -7,18 +7,18 @@
 '     the code is regenerated.
 ' </auto-generated>
 '------------------------------------------------------------------------------
-Namespace CustomDraw.Properties
+Namespace PDF_Viewer.Properties
 
     <Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute()>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "12.0.0.0")>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.1.0.0")>
     Friend NotInheritable Partial Class Settings
         Inherits Global.System.Configuration.ApplicationSettingsBase
 
-        Private Shared defaultInstance As CustomDraw.Properties.Settings = CType((Global.System.Configuration.ApplicationSettingsBase.Synchronized(New CustomDraw.Properties.Settings())), CustomDraw.Properties.Settings)
+        Private Shared defaultInstance As PDF_Viewer.Properties.Settings = CType((Global.System.Configuration.ApplicationSettingsBase.Synchronized(New PDF_Viewer.Properties.Settings())), PDF_Viewer.Properties.Settings)
 
         Public Shared ReadOnly Property [Default] As Settings
             Get
-                Return CustomDraw.Properties.Settings.defaultInstance
+                Return PDF_Viewer.Properties.Settings.defaultInstance
             End Get
         End Property
     End Class

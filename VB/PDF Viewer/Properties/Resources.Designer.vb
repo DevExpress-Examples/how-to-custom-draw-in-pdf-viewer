@@ -9,7 +9,7 @@
 '------------------------------------------------------------------------------
 Imports System
 
-Namespace CustomDraw.Properties
+Namespace PDF_Viewer.Properties
 
     ''' <summary>
     '''   A strongly-typed resource class, for looking up localized strings, etc.
@@ -18,7 +18,7 @@ Namespace CustomDraw.Properties
     ' class via a tool like ResGen or Visual Studio.
     ' To add or remove a member, edit your .ResX file then rerun ResGen
     ' with the /str option, or rebuild your VS project.
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")>
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>
     <Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute()>
     Friend Class Resources
@@ -37,12 +37,12 @@ Namespace CustomDraw.Properties
         <Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>
         Friend Shared ReadOnly Property ResourceManager As Global.System.Resources.ResourceManager
             Get
-                If Object.ReferenceEquals(CustomDraw.Properties.Resources.resourceMan, Nothing) Then
-                    Dim temp As Global.System.Resources.ResourceManager = New Global.System.Resources.ResourceManager("Resources", GetType(CustomDraw.Properties.Resources).Assembly)
-                    CustomDraw.Properties.Resources.resourceMan = temp
+                If Object.ReferenceEquals(PDF_Viewer.Properties.Resources.resourceMan, Nothing) Then
+                    Dim temp As Global.System.Resources.ResourceManager = New Global.System.Resources.ResourceManager("Resources", GetType(PDF_Viewer.Properties.Resources).Assembly)
+                    PDF_Viewer.Properties.Resources.resourceMan = temp
                 End If
 
-                Return CustomDraw.Properties.Resources.resourceMan
+                Return PDF_Viewer.Properties.Resources.resourceMan
             End Get
         End Property
 
@@ -53,11 +53,11 @@ Namespace CustomDraw.Properties
         <Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>
         Friend Shared Property Culture As Global.System.Globalization.CultureInfo
             Get
-                Return CustomDraw.Properties.Resources.resourceCulture
+                Return PDF_Viewer.Properties.Resources.resourceCulture
             End Get
 
             Set(ByVal value As Global.System.Globalization.CultureInfo)
-                CustomDraw.Properties.Resources.resourceCulture = value
+                PDF_Viewer.Properties.Resources.resourceCulture = value
             End Set
         End Property
     End Class
