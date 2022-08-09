@@ -6,18 +6,19 @@
 <!-- default file list -->
 *Files to look at*:
 
-* [Form1.cs](./CS/CustomDraw/Form1.cs) (VB: [Form1.vb](./VB/CustomDraw/Form1.vb))
+* [Form1.cs](./CS/PDF%Viewer/Form1.cs) (VB: [Form1.vb](./VB/PDF%Viewer/Form1.vb))
 <!-- default file list end -->
-# How to custom draw in  PDF Viewer
+# How to: Draw Graphics by Coordinates Obtained from the PDF Viewer
 
+The [PDF Viewer](https://www.devexpress.com/products/net/controls/winforms/pdf-viewer/) allows you to draw graphics in a PDf file in the [Control.Paint](https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.control.paint) event handler. Use the [PDF Graphics API](https://docs.devexpress.com/OfficeFileAPI/119009/pdf-document-api/pdf-graphics) to save graphics to a file.
 
-The [PDF Viewer control](https://www.devexpress.com/products/net/controls/winforms/pdf-viewer/) can draw graphics in the PDF document in the <strong>Control.Paint</strong> event handler. <br><br>In this example, the filled rectangle is drawn at any document space when you hold down the left mouse button and move it. 
+> [!IMPORTANT]
+> You need a license for the DevExpress [Office File API Subscription](https://www.devexpress.com/products/net/office-file-api/) or [DevExpress Universal Subscription](https://www.devexpress.com/subscriptions/universal.xml) to use PDF Graphics API in production code.
 
+In this example, a rectangle is drawn in the selection area. Drawing is activated on the **Activate Drawing** button click. The **Save Graphics and Reload** button saves created graphics and reloads the PDF file.
 
-<h3>Description</h3>
+![result](./media/pdf-viewer-custom-draw.png)
 
-The PDF Viewer gets the mouse position relative to the PDF Viewer by calling the <a href="https://documentation.devexpress.com/#WindowsForms/DevExpressXtraPdfViewerPdfViewer_GetDocumentPositiontopic">PdfViewer.GetDocumentPosition</a> method in the <strong>MouseDown</strong> (when the left mouse is pressed), and&nbsp; <strong>MouseMove</strong> event handlers (when the mouse is moving). <br><br>To draw a filled rectangle in the PDF document, the<strong> RectangleF.FromLTRB</strong> method is called in the Paint event handler. The start and end client points are obtained using the document position in the <a href="https://documentation.devexpress.com/#WindowsForms/DevExpressXtraPdfViewerPdfViewer_GetClientPointtopic">PdfViewer.GetClientPoint</a> method.
+Refer to the following article for more information:
 
-<br/>
-
-
+[How to: Draw Graphics by Coordinates Obtained from the PDF Viewer](https://docs.devexpress.com/WindowsForms/115318/controls-and-libraries/pdf-viewer/examples/interactivity/how-to-custom-draw-in-the-pdf-viewer)
