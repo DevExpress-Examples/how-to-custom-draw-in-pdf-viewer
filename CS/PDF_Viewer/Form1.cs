@@ -171,7 +171,7 @@ namespace PDF_Viewer
         #region ActivateDrawing
         private void activateDrawingButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            // Changle the activation indicator
+            // Change the activation indicator
             ActivateDrawing = !ActivateDrawing;
             pdfViewer.Invalidate();
         }
@@ -199,7 +199,6 @@ namespace PDF_Viewer
         #endregion ActivateDrawing
 
         #region SaveGrahpics
-
         private void saveGraphicsButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             SaveDrawingAndReload();
