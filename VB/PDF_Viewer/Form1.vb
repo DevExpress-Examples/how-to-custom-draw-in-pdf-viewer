@@ -168,7 +168,7 @@ Namespace PDF_Viewer
 #End Region  ' MouseEvents
 #Region "ActivateDrawing"
         Private Sub activateDrawingButton_ItemClick(ByVal sender As Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs)
-            ' Changle the activation indicator
+            ' Change the activation indicator
             ActivateDrawing = Not ActivateDrawing
             pdfViewer.Invalidate()
         End Sub
