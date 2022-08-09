@@ -61,8 +61,8 @@ Namespace PDF_Viewer
             Me.pdfExportFormDataBarItem1 = New DevExpress.XtraPdfViewer.Bars.PdfExportFormDataBarItem()
             Me.pdfImportFormDataBarItem1 = New DevExpress.XtraPdfViewer.Bars.PdfImportFormDataBarItem()
             Me.barButtonItem1 = New DevExpress.XtraBars.BarButtonItem()
-            Me.barButtonItem2 = New DevExpress.XtraBars.BarButtonItem()
-            Me.barButtonItem3 = New DevExpress.XtraBars.BarButtonItem()
+            Me.activateDrawingButton = New DevExpress.XtraBars.BarButtonItem()
+            Me.saveGraphicsButton = New DevExpress.XtraBars.BarButtonItem()
             Me.pdfRibbonPage1 = New DevExpress.XtraPdfViewer.Bars.PdfRibbonPage()
             Me.pdfFileRibbonPageGroup1 = New DevExpress.XtraPdfViewer.Bars.PdfFileRibbonPageGroup()
             Me.pdfFindRibbonPageGroup1 = New DevExpress.XtraPdfViewer.Bars.PdfFindRibbonPageGroup()
@@ -96,7 +96,7 @@ Namespace PDF_Viewer
             ' 
             Me.ribbonControl1.EmptyAreaImageOptions.ImagePadding = New System.Windows.Forms.Padding(122, 112, 122, 112)
             Me.ribbonControl1.ExpandCollapseItem.Id = 0
-            Me.ribbonControl1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.ribbonControl1.ExpandCollapseItem, Me.ribbonControl1.SearchEditItem, Me.pdfFileOpenBarItem1, Me.pdfFileSaveAsBarItem1, Me.pdfFilePrintBarItem1, Me.pdfFindTextBarItem1, Me.pdfPreviousPageBarItem1, Me.pdfNextPageBarItem1, Me.pdfSetPageNumberBarItem1, Me.pdfZoomOutBarItem1, Me.pdfZoomInBarItem1, Me.pdfExactZoomListBarSubItem1, Me.pdfZoom10CheckItem1, Me.pdfZoom25CheckItem1, Me.pdfZoom50CheckItem1, Me.pdfZoom75CheckItem1, Me.pdfZoom100CheckItem1, Me.pdfZoom125CheckItem1, Me.pdfZoom150CheckItem1, Me.pdfZoom200CheckItem1, Me.pdfZoom400CheckItem1, Me.pdfZoom500CheckItem1, Me.pdfSetActualSizeZoomModeCheckItem1, Me.pdfSetPageLevelZoomModeCheckItem1, Me.pdfSetFitWidthZoomModeCheckItem1, Me.pdfSetFitVisibleZoomModeCheckItem1, Me.pdfTextHighlightBarItem1, Me.pdfTextStrikethroughBarItem1, Me.pdfTextUnderlineBarItem1, Me.pdfStickyNoteBarItem1, Me.pdfExportFormDataBarItem1, Me.pdfImportFormDataBarItem1, Me.barButtonItem1, Me.barButtonItem2, Me.barButtonItem3})
+            Me.ribbonControl1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.ribbonControl1.ExpandCollapseItem, Me.ribbonControl1.SearchEditItem, Me.pdfFileOpenBarItem1, Me.pdfFileSaveAsBarItem1, Me.pdfFilePrintBarItem1, Me.pdfFindTextBarItem1, Me.pdfPreviousPageBarItem1, Me.pdfNextPageBarItem1, Me.pdfSetPageNumberBarItem1, Me.pdfZoomOutBarItem1, Me.pdfZoomInBarItem1, Me.pdfExactZoomListBarSubItem1, Me.pdfZoom10CheckItem1, Me.pdfZoom25CheckItem1, Me.pdfZoom50CheckItem1, Me.pdfZoom75CheckItem1, Me.pdfZoom100CheckItem1, Me.pdfZoom125CheckItem1, Me.pdfZoom150CheckItem1, Me.pdfZoom200CheckItem1, Me.pdfZoom400CheckItem1, Me.pdfZoom500CheckItem1, Me.pdfSetActualSizeZoomModeCheckItem1, Me.pdfSetPageLevelZoomModeCheckItem1, Me.pdfSetFitWidthZoomModeCheckItem1, Me.pdfSetFitVisibleZoomModeCheckItem1, Me.pdfTextHighlightBarItem1, Me.pdfTextStrikethroughBarItem1, Me.pdfTextUnderlineBarItem1, Me.pdfStickyNoteBarItem1, Me.pdfExportFormDataBarItem1, Me.pdfImportFormDataBarItem1, Me.barButtonItem1, Me.activateDrawingButton, Me.saveGraphicsButton})
             Me.ribbonControl1.Location = New System.Drawing.Point(0, 0)
             Me.ribbonControl1.Margin = New System.Windows.Forms.Padding(14, 12, 14, 12)
             Me.ribbonControl1.MaxItemId = 37
@@ -278,22 +278,22 @@ Namespace PDF_Viewer
             Me.barButtonItem1.Id = 33
             Me.barButtonItem1.Name = "barButtonItem1"
             ' 
-            ' barButtonItem2
+            ' activateDrawingButton
             ' 
-            Me.barButtonItem2.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check
-            Me.barButtonItem2.Caption = "Activate Drawing"
-            Me.barButtonItem2.Id = 35
-            Me.barButtonItem2.ImageOptions.SvgImage = CType((resources.GetObject("barButtonItem2.ImageOptions.SvgImage")), DevExpress.Utils.Svg.SvgImage)
-            Me.barButtonItem2.Name = "barButtonItem2"
-            AddHandler Me.barButtonItem2.ItemClick, New DevExpress.XtraBars.ItemClickEventHandler(AddressOf Me.barButtonItem2_ItemClick)
+            Me.activateDrawingButton.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check
+            Me.activateDrawingButton.Caption = "Activate Drawing"
+            Me.activateDrawingButton.Id = 35
+            Me.activateDrawingButton.ImageOptions.SvgImage = CType((resources.GetObject("barButtonItem2.ImageOptions.SvgImage")), DevExpress.Utils.Svg.SvgImage)
+            Me.activateDrawingButton.Name = "activateDrawingButton"
+            AddHandler Me.activateDrawingButton.ItemClick, New DevExpress.XtraBars.ItemClickEventHandler(AddressOf Me.activateDrawingButton_ItemClick)
             ' 
-            ' barButtonItem3
+            ' saveGraphicsButton
             ' 
-            Me.barButtonItem3.Caption = "Save drawings and reload"
-            Me.barButtonItem3.Id = 36
-            Me.barButtonItem3.ImageOptions.SvgImage = CType((resources.GetObject("barButtonItem3.ImageOptions.SvgImage")), DevExpress.Utils.Svg.SvgImage)
-            Me.barButtonItem3.Name = "barButtonItem3"
-            AddHandler Me.barButtonItem3.ItemClick, New DevExpress.XtraBars.ItemClickEventHandler(AddressOf Me.barButtonItem3_ItemClick)
+            Me.saveGraphicsButton.Caption = "Save Graphics and Reload"
+            Me.saveGraphicsButton.Id = 36
+            Me.saveGraphicsButton.ImageOptions.SvgImage = CType((resources.GetObject("barButtonItem3.ImageOptions.SvgImage")), DevExpress.Utils.Svg.SvgImage)
+            Me.saveGraphicsButton.Name = "saveGraphicsButton"
+            AddHandler Me.saveGraphicsButton.ItemClick, New DevExpress.XtraBars.ItemClickEventHandler(AddressOf Me.saveGraphicsButton_ItemClick)
             ' 
             ' pdfRibbonPage1
             ' 
@@ -333,8 +333,8 @@ Namespace PDF_Viewer
             ' 
             ' ribbonPageGroup1
             ' 
-            Me.ribbonPageGroup1.ItemLinks.Add(Me.barButtonItem2)
-            Me.ribbonPageGroup1.ItemLinks.Add(Me.barButtonItem3)
+            Me.ribbonPageGroup1.ItemLinks.Add(Me.activateDrawingButton)
+            Me.ribbonPageGroup1.ItemLinks.Add(Me.saveGraphicsButton)
             Me.ribbonPageGroup1.Name = "ribbonPageGroup1"
             Me.ribbonPageGroup1.Text = "Draw Content"
             ' 
@@ -514,10 +514,10 @@ Namespace PDF_Viewer
 
         Private barButtonItem1 As DevExpress.XtraBars.BarButtonItem
 
-        Private barButtonItem2 As DevExpress.XtraBars.BarButtonItem
+        Private activateDrawingButton As DevExpress.XtraBars.BarButtonItem
 
         Private ribbonPageGroup1 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
 
-        Private barButtonItem3 As DevExpress.XtraBars.BarButtonItem
+        Private saveGraphicsButton As DevExpress.XtraBars.BarButtonItem
     End Class
 End Namespace
