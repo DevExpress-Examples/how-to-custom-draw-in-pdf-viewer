@@ -64,8 +64,8 @@
             this.pdfExportFormDataBarItem1 = new DevExpress.XtraPdfViewer.Bars.PdfExportFormDataBarItem();
             this.pdfImportFormDataBarItem1 = new DevExpress.XtraPdfViewer.Bars.PdfImportFormDataBarItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
+            this.activateDrawingButton = new DevExpress.XtraBars.BarButtonItem();
+            this.saveGraphicsButton = new DevExpress.XtraBars.BarButtonItem();
             this.pdfRibbonPage1 = new DevExpress.XtraPdfViewer.Bars.PdfRibbonPage();
             this.pdfFileRibbonPageGroup1 = new DevExpress.XtraPdfViewer.Bars.PdfFileRibbonPageGroup();
             this.pdfFindRibbonPageGroup1 = new DevExpress.XtraPdfViewer.Bars.PdfFindRibbonPageGroup();
@@ -133,8 +133,8 @@
             this.pdfExportFormDataBarItem1,
             this.pdfImportFormDataBarItem1,
             this.barButtonItem1,
-            this.barButtonItem2,
-            this.barButtonItem3});
+            this.activateDrawingButton,
+            this.saveGraphicsButton});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(14, 12, 14, 12);
             this.ribbonControl1.MaxItemId = 37;
@@ -334,22 +334,22 @@
             this.barButtonItem1.Id = 33;
             this.barButtonItem1.Name = "barButtonItem1";
             // 
-            // barButtonItem2
+            // activateDrawingButton
             // 
-            this.barButtonItem2.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
-            this.barButtonItem2.Caption = "Activate Drawing";
-            this.barButtonItem2.Id = 35;
-            this.barButtonItem2.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem2.ImageOptions.SvgImage")));
-            this.barButtonItem2.Name = "barButtonItem2";
-            this.barButtonItem2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
+            this.activateDrawingButton.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.Check;
+            this.activateDrawingButton.Caption = "Activate Drawing";
+            this.activateDrawingButton.Id = 35;
+            this.activateDrawingButton.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem2.ImageOptions.SvgImage")));
+            this.activateDrawingButton.Name = "activateDrawingButton";
+            this.activateDrawingButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.activateDrawingButton_ItemClick);
             // 
-            // barButtonItem3
+            // saveGraphicsButton
             // 
-            this.barButtonItem3.Caption = "Save drawings and reload";
-            this.barButtonItem3.Id = 36;
-            this.barButtonItem3.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem3.ImageOptions.SvgImage")));
-            this.barButtonItem3.Name = "barButtonItem3";
-            this.barButtonItem3.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem3_ItemClick);
+            this.saveGraphicsButton.Caption = "Save Graphics and Reload";
+            this.saveGraphicsButton.Id = 36;
+            this.saveGraphicsButton.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem3.ImageOptions.SvgImage")));
+            this.saveGraphicsButton.Name = "saveGraphicsButton";
+            this.saveGraphicsButton.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.saveGraphicsButton_ItemClick);
             // 
             // pdfRibbonPage1
             // 
@@ -394,8 +394,8 @@
             // 
             // ribbonPageGroup1
             // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem2);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem3);
+            this.ribbonPageGroup1.ItemLinks.Add(this.activateDrawingButton);
+            this.ribbonPageGroup1.ItemLinks.Add(this.saveGraphicsButton);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Draw Content";
             // 
@@ -535,8 +535,8 @@
         private DevExpress.XtraPdfViewer.Bars.PdfFormDataBarPageGroup pdfFormDataBarPageGroup1;
         private DevExpress.XtraPdfViewer.Bars.PdfBarController pdfBarController1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem2;
+        private DevExpress.XtraBars.BarButtonItem activateDrawingButton;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem3;
+        private DevExpress.XtraBars.BarButtonItem saveGraphicsButton;
     }
 }

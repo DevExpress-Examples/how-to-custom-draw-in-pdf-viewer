@@ -12,11 +12,12 @@ namespace PDF_Viewer
 {
     public partial class Form1 : RibbonForm
     {
+        #region SaveAsCommand
         class CustomSaveAsCommand : PdfSaveAsFileCommand
         {
-            readonly IList<GraphicsRect> rectangles;
+            readonly IList<GraphicsCoordinates> rectangles;
 
-            public CustomSaveAsCommand(PdfViewer control, IList<GraphicsRect> rectangles) : base(control)
+            public CustomSaveAsCommand(PdfViewer control, IList<GraphicsCoordinates> rectangles) : base(control)
             {
                 this.rectangles = rectangles;
             }
@@ -64,7 +65,7 @@ namespace PDF_Viewer
             readonly PdfViewer viewer;
             readonly IPdfViewerCommandFactoryService service;
 
-            public IList<GraphicsRect> Rectangles { get; set; }
+            public IList<GraphicsCoordinates> Rectangles { get; set; }
 
             public CustomCommandService(IPdfViewerCommandFactoryService service, PdfViewer viewer)
             {
@@ -78,10 +79,15 @@ namespace PDF_Viewer
                 return service.CreateCommand(commandId);
             }
         }
+        #endregion SaveAsCommand
 
-        class GraphicsRect
+        #region GraphicsCoordinates
+
+        // This class is used to save
+        // and restore the selection area coordinates
+        class GraphicsCoordinates
         {
-            public GraphicsRect(int pageIndex, PdfPoint point1, PdfPoint point2) {
+            public GraphicsCoordinates(int pageIndex, PdfPoint point1, PdfPoint point2) {
                 PageIndex = pageIndex;
                 Point1 = point1;
                 Point2 = point2;
@@ -93,11 +99,14 @@ namespace PDF_Viewer
             public bool IsEmpty => Point1 == Point2;
         }
 
+        List<GraphicsCoordinates> rectangleCoordinateList = new List<GraphicsCoordinates>();
+        GraphicsCoordinates currentCoordinates;
 
-
-        List<GraphicsRect> imageRectangleList = new List<GraphicsRect>();
-        GraphicsRect currentImageRect;
+        // This variable indicates whether the Drawing button
+        // is activated
         bool ActivateDrawing = false;
+        #endregion GraphicsCoordinates
+
         CustomCommandService commandService;
 
         public Form1() {
@@ -113,7 +122,7 @@ namespace PDF_Viewer
             var service = pdfViewer.GetService<IPdfViewerCommandFactoryService>();
             pdfViewer.RemoveService(typeof(IPdfViewerCommandFactoryService));
             commandService = new CustomCommandService(service, pdfViewer);
-            commandService.Rectangles = imageRectangleList;
+            commandService.Rectangles = rectangleCoordinateList;
             pdfViewer.AddService(typeof(IPdfViewerCommandFactoryService), commandService);
         }
 
@@ -123,82 +132,117 @@ namespace PDF_Viewer
             else
                 pdfViewer.ScrollVertical(-e.Delta);
         }
-        void UpdateCurrentRect(Point location) {
-            if (currentImageRect != null) {
-                var documentPosition = pdfViewer.GetDocumentPosition(location, true);
-                if (currentImageRect.PageIndex == documentPosition.PageNumber - 1)
-                    currentImageRect = new GraphicsRect(currentImageRect.PageIndex, currentImageRect.Point1, documentPosition.Point);
-            }
-        }
+
+        #region MouseEvents
         void PdfViewer_MouseMove(object sender, MouseEventArgs e) {
-            if (currentImageRect != null) {
+            if (currentCoordinates != null) {
                 UpdateCurrentRect(e.Location);
                 pdfViewer.Invalidate();
             }
         }
         void pdfViewer1_MouseUp(object sender, MouseEventArgs e) {
+
+            // Convert the retrieved coordinates 
+            // to the page coordinates
             UpdateCurrentRect(e.Location);
-            if (currentImageRect != null) {
-                if (!currentImageRect.IsEmpty && ActivateDrawing)
-                    imageRectangleList.Add(currentImageRect);
-                currentImageRect = null;
+            if (currentCoordinates != null) {
+                if (!currentCoordinates.IsEmpty && ActivateDrawing)
+                    // Add coordinates to the list
+                    rectangleCoordinateList.Add(currentCoordinates);
+                currentCoordinates = null;
             }
         }
         void pdfViewer1_MouseDown(object sender, MouseEventArgs e) {
             var position = pdfViewer.GetDocumentPosition(e.Location, true);
-            currentImageRect = new GraphicsRect(position.PageNumber - 1, position.Point, position.Point);
+            currentCoordinates = new GraphicsCoordinates(position.PageNumber - 1, position.Point, position.Point);
         }
-        void DrawImageRectangle(Graphics graphics, GraphicsRect rect) {
-            PointF start = pdfViewer.GetClientPoint(new PdfDocumentPosition(rect.PageIndex + 1, rect.Point1));
-            PointF end = pdfViewer.GetClientPoint(new PdfDocumentPosition(rect.PageIndex + 1, rect.Point2));
-            var r = Rectangle.FromLTRB((int)Math.Min(start.X, end.X), (int)Math.Min(start.Y, end.Y), (int)Math.Max(start.X, end.X), (int)Math.Max(start.Y, end.Y));
-            graphics.DrawRectangle(new Pen(Color.Red), r);
+
+        void UpdateCurrentRect(Point location)
+        {
+            if (rectangleCoordinateList != null)
+            {
+                var documentPosition = pdfViewer.GetDocumentPosition(location, true);
+                if (currentCoordinates.PageIndex == documentPosition.PageNumber - 1)
+                    
+                    currentCoordinates = new GraphicsCoordinates(currentCoordinates.PageIndex, currentCoordinates.Point1, documentPosition.Point);
+            }
         }
+        #endregion MouseEvents
+
+        #region ActivateDrawing
+        private void activateDrawingButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            // Changle the activation indicator
+            ActivateDrawing = !ActivateDrawing;
+            pdfViewer.Invalidate();
+        }
+
         void PdfViewer_Paint(object sender, PaintEventArgs e) {
             if (ActivateDrawing)
             {
-                foreach (var r in imageRectangleList)
+                foreach (var r in rectangleCoordinateList)
                     DrawImageRectangle(e.Graphics, r);
-                if (currentImageRect != null)
-                    DrawImageRectangle(e.Graphics, currentImageRect);
+                if (currentCoordinates != null)
+                    DrawImageRectangle(e.Graphics, currentCoordinates);
             }
         }
+
+        void DrawImageRectangle(Graphics graphics, GraphicsCoordinates rect)
+        {            
+            PointF start = pdfViewer.GetClientPoint(new PdfDocumentPosition(rect.PageIndex + 1, rect.Point1));
+            PointF end = pdfViewer.GetClientPoint(new PdfDocumentPosition(rect.PageIndex + 1, rect.Point2));
+            // Create a rectangle where graphics should be drawn
+            var r = Rectangle.FromLTRB((int)Math.Min(start.X, end.X), (int)Math.Min(start.Y, end.Y), (int)Math.Max(start.X, end.X), (int)Math.Max(start.Y, end.Y));
+            
+            // Draw a rectangle in the created area
+            graphics.DrawRectangle(new Pen(Color.Red), r);
+        }
+        #endregion ActivateDrawing
+
+        #region SaveGrahpics
+
+        private void saveGraphicsButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            SaveDrawingAndReload();
+        }
+
         private void SaveDrawingAndReload()
         {
             string fileName = pdfViewer.DocumentFilePath;
             pdfViewer.CloseDocument();
             using (PdfDocumentProcessor processor = new PdfDocumentProcessor())
             {
+                // Load a document to the PdfDocumentProcessor instance
                 processor.LoadDocument(fileName);
-                foreach (var rect in imageRectangleList)
+                foreach (var rect in rectangleCoordinateList)
                 {
+                    // Create a PdfGraphics object
                     using (PdfGraphics graph = processor.CreateGraphics())
                     {
                         PdfPage page = processor.Document.Pages[rect.PageIndex];
                         PdfRectangle pageCropBox = page.CropBox;
                         PdfPoint p1 = new PdfPoint(rect.Point1.X, pageCropBox.Height - rect.Point1.Y);
                         PdfPoint p2 = new PdfPoint(rect.Point2.X, pageCropBox.Height - rect.Point2.Y);
+
+                        // Create a rectangle where graphics should be drawn
                         RectangleF bounds = RectangleF.FromLTRB(
                             (float)Math.Min(p1.X, p2.X), (float)Math.Min(p1.Y, p2.Y),
                             (float)Math.Max(p1.X, p2.X), (float)Math.Max(p1.Y, p2.Y));
+                        // Draw a rectangle in the created area
                         graph.DrawRectangle(new Pen(Color.Red), bounds);
+                        
+                        // Draw graphics content into a file
                         graph.AddToPageForeground(page, 72, 72);
                     }
                 }
+                // Save the document
                 processor.SaveDocument(fileName);
             }
-            imageRectangleList.Clear();
+            rectangleCoordinateList.Clear();
+
+            // Open the document in the PDF Viewer
             pdfViewer.LoadDocument(fileName);
         }
-        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            ActivateDrawing = !ActivateDrawing;
-            pdfViewer.Invalidate();
-        }
-
-        private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            SaveDrawingAndReload();
-        }
+        #endregion SaveGraphics
     }
 }
