@@ -198,7 +198,7 @@ namespace PDF_Viewer
         }
         #endregion ActivateDrawing
 
-        #region SaveGrahpics
+        #region SaveGraphics
         private void saveGraphicsButton_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             SaveDrawingAndReload();
