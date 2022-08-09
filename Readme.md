@@ -6,7 +6,7 @@
 <!-- default file list -->
 *Files to look at*:
 
-* [Form1.cs](./CS/PDF%Viewer/Form1.cs) (VB: [Form1.vb](./VB/PDF%Viewer/Form1.vb))
+* [Form1.cs](./CS/PDF%20Viewer/Form1.cs) (VB: [Form1.vb](./VB/PDF%20Viewer/Form1.vb))
 <!-- default file list end -->
 # How to: Draw Graphics by Coordinates Obtained from the PDF Viewer
 
