@@ -82,7 +82,6 @@ namespace PDF_Viewer
         #endregion SaveAsCommand
 
         #region GraphicsCoordinates
-
         // This class is used to save
         // and restore the selection area coordinates
         class GraphicsCoordinates
