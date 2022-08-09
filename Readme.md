@@ -12,7 +12,8 @@
 
 The [PDF Viewer](https://www.devexpress.com/products/net/controls/winforms/pdf-viewer/) allows you to draw graphics in a PDF file in the [Control.Paint](https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.control.paint) event handler. Use the [PDF Graphics API](https://docs.devexpress.com/OfficeFileAPI/119009/pdf-document-api/pdf-graphics) to save graphics to a file.
 
-> **IMPORTANT**
+> **Note**
+>
 > You need a license for the DevExpress [Office File API Subscription](https://www.devexpress.com/products/net/office-file-api/) or [DevExpress Universal Subscription](https://www.devexpress.com/subscriptions/universal.xml) to use PDF Graphics API in production code.
 
 In this example, a rectangle is drawn in the selection area. Drawing is activated on the **Activate Drawing** button click. The **Save Graphics and Reload** button saves created graphics and reloads the PDF file.
