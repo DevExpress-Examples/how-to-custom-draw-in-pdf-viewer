@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDF Viewer", "PDF Viewer\PDF Viewer.csproj", "{51B0D106-531C-491E-97F1-3F8FAEA8D364}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PDF_Viewer", "PDF_Viewer\PDF_Viewer.csproj", "{51B0D106-531C-491E-97F1-3F8FAEA8D364}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
