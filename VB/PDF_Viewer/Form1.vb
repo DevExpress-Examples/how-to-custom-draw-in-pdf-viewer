@@ -193,7 +193,7 @@ Namespace PDF_Viewer
         End Sub
 
 #End Region  ' ActivateDrawing
-#Region "SaveGrahpics"
+#Region "SaveGraphics"
         Private Sub saveGraphicsButton_ItemClick(ByVal sender As Object, ByVal e As DevExpress.XtraBars.ItemClickEventArgs)
             SaveDrawingAndReload()
         End Sub
