@@ -18,7 +18,7 @@ In this example, a rectangle is drawn in the selection area. Drawing is activate
 
 ## Files to Look At
 
-* [Form1.cs](./CS/PDF%20Viewer/Form1.cs) (VB: [Form1.vb](./VB/PDF%20Viewer/Form1.vb))
+* [Form1.cs](./CS/PDF_Viewer/Form1.cs) (VB: [Form1.vb](./VB/PDF_Viewer/Form1.vb))
 
 ## Documentation
 
