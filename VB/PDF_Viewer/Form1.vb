@@ -1,4 +1,5 @@
 Imports DevExpress.Pdf
+Imports DevExpress.Drawing
 Imports DevExpress.XtraBars.Ribbon
 Imports DevExpress.XtraPdfViewer
 Imports DevExpress.XtraPdfViewer.Commands
@@ -43,7 +44,7 @@ Namespace PDF_Viewer
                                 Dim p1 As PdfPoint = New PdfPoint(rect.Point1.X, pageCropBox.Height - rect.Point1.Y)
                                 Dim p2 As PdfPoint = New PdfPoint(rect.Point2.X, pageCropBox.Height - rect.Point2.Y)
                                 Dim bounds As RectangleF = RectangleF.FromLTRB(CSng(Math.Min(p1.X, p2.X)), CSng(Math.Min(p1.Y, p2.Y)), CSng(Math.Max(p1.X, p2.X)), CSng(Math.Max(p1.Y, p2.Y)))
-                                graph.DrawRectangle(New Pen(Color.Red), bounds)
+                                graph.DrawRectangle(New DXPen(Color.Red), bounds)
                                 graph.AddToPageForeground(page, 72, 72)
                             End Using
                         Next
@@ -214,7 +215,7 @@ Namespace PDF_Viewer
                         ' Create a rectangle where graphics should be drawn
                         Dim bounds As RectangleF = RectangleF.FromLTRB(CSng(Math.Min(p1.X, p2.X)), CSng(Math.Min(p1.Y, p2.Y)), CSng(Math.Max(p1.X, p2.X)), CSng(Math.Max(p1.Y, p2.Y)))
                         ' Draw a rectangle in the created area
-                        graph.DrawRectangle(New Pen(Color.Red), bounds)
+                        graph.DrawRectangle(New DXPen(Color.Red), bounds)
                         ' Draw graphics content into a file
                         graph.AddToPageForeground(page, 72, 72)
                     End Using
