@@ -1,6 +1,7 @@
 ﻿using DevExpress.Pdf;
 using DevExpress.XtraBars.Ribbon;
 using DevExpress.XtraPdfViewer;
+using DevExpress.Drawing;
 using DevExpress.XtraPdfViewer.Commands;
 using DevExpress.XtraPdfViewer.Localization;
 using System;
@@ -49,7 +50,7 @@ namespace PDF_Viewer
                                 RectangleF bounds = RectangleF.FromLTRB(
                                     (float)Math.Min(p1.X, p2.X), (float)Math.Min(p1.Y, p2.Y),
                                     (float)Math.Max(p1.X, p2.X), (float)Math.Max(p1.Y, p2.Y));
-                                graph.DrawRectangle(new Pen(Color.Red), bounds);
+                                graph.DrawRectangle(new DXPen(Color.Red), bounds);
                                 graph.AddToPageForeground(page, 72, 72);
                             }
                         }
@@ -227,7 +228,7 @@ namespace PDF_Viewer
                             (float)Math.Min(p1.X, p2.X), (float)Math.Min(p1.Y, p2.Y),
                             (float)Math.Max(p1.X, p2.X), (float)Math.Max(p1.Y, p2.Y));
                         // Draw a rectangle in the created area
-                        graph.DrawRectangle(new Pen(Color.Red), bounds);
+                        graph.DrawRectangle(new DXPen(Color.Red), bounds);
                         
                         // Draw graphics content into a file
                         graph.AddToPageForeground(page, 72, 72);
