@@ -1,7 +1,7 @@
 Imports DevExpress.Pdf
-Imports DevExpress.Drawing
 Imports DevExpress.XtraBars.Ribbon
 Imports DevExpress.XtraPdfViewer
+Imports DevExpress.Drawing
 Imports DevExpress.XtraPdfViewer.Commands
 Imports DevExpress.XtraPdfViewer.Localization
 Imports System
