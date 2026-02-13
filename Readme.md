@@ -25,7 +25,7 @@ In this example, a rectangle is drawn in the selection area. Drawing is activate
 
 [How to: Draw Graphics by Coordinates Obtained from the PDF Viewer](https://docs.devexpress.com/WindowsForms/115318/controls-and-libraries/pdf-viewer/examples/interactivity/how-to-custom-draw-in-the-pdf-viewer)
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=how-to-custom-draw-in-pdf-viewer&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=how-to-custom-draw-in-pdf-viewer&~~~was_helpful=no)
 
